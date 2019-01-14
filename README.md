@@ -20,6 +20,9 @@
 * An App to fetch and store GitHub commits for Swift
 * uses `CoreData`
 * uses `NSPersistentContainer` and it's `viewContext` property
+* uses `SwiftyJSON` for parsing JSON
+* uses `ISO8601DateFormatter`
+* 
 
 
 ## License
