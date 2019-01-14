@@ -12,6 +12,7 @@
 		5CCE1B5921ECD3D10092E173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CCE1B5721ECD3D10092E173 /* Main.storyboard */; };
 		5CCE1B5B21ECD3D30092E173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CCE1B5A21ECD3D30092E173 /* Assets.xcassets */; };
 		5CCE1B5E21ECD3D30092E173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CCE1B5C21ECD3D30092E173 /* LaunchScreen.storyboard */; };
+		5CCE1B6621ECD4460092E173 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B6521ECD4460092E173 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5CCE1B5A21ECD3D30092E173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CCE1B5D21ECD3D30092E173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CCE1B5F21ECD3D30092E173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CCE1B6521ECD4460092E173 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,47 @@
 		5CCE1B5221ECD3D10092E173 /* GitHub Commits */ = {
 			isa = PBXGroup;
 			children = (
+				5CCE1B6A21ECD4830092E173 /* Third Party */,
+				5CCE1B6921ECD4780092E173 /* Model */,
+				5CCE1B6821ECD4720092E173 /* View */,
+				5CCE1B6721ECD4660092E173 /* Controller */,
 				5CCE1B5321ECD3D10092E173 /* AppDelegate.swift */,
-				5CCE1B5521ECD3D10092E173 /* ViewController.swift */,
-				5CCE1B5721ECD3D10092E173 /* Main.storyboard */,
 				5CCE1B5A21ECD3D30092E173 /* Assets.xcassets */,
-				5CCE1B5C21ECD3D30092E173 /* LaunchScreen.storyboard */,
 				5CCE1B5F21ECD3D30092E173 /* Info.plist */,
 			);
 			path = "GitHub Commits";
+			sourceTree = "<group>";
+		};
+		5CCE1B6721ECD4660092E173 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5CCE1B5521ECD3D10092E173 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5CCE1B6821ECD4720092E173 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5CCE1B5721ECD3D10092E173 /* Main.storyboard */,
+				5CCE1B5C21ECD3D30092E173 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5CCE1B6921ECD4780092E173 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5CCE1B6A21ECD4830092E173 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				5CCE1B6521ECD4460092E173 /* SwiftyJSON.swift */,
+			);
+			path = "Third Party";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCE1B6621ECD4460092E173 /* SwiftyJSON.swift in Sources */,
 				5CCE1B5621ECD3D10092E173 /* ViewController.swift in Sources */,
 				5CCE1B5421ECD3D10092E173 /* AppDelegate.swift in Sources */,
 			);
