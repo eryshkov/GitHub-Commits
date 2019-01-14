@@ -35,7 +35,7 @@ class ViewController: UITableViewController {
     }
     
     @objc func fetchCommits() {
-        if let data = try? String(contentsOf: URL(string: "https:// api.github.com/repos/apple/swift/commits?per_page=100")!) {
+        if let data = try? String(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100")!) {
             let jsonCommits = JSON(parseJSON: data)
             
             let jsonCommitArray = jsonCommits.arrayValue
