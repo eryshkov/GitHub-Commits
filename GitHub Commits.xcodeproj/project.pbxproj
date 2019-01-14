@@ -15,6 +15,8 @@
 		5CCE1B6621ECD4460092E173 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B6521ECD4460092E173 /* SwiftyJSON.swift */; };
 		5CCE1B6C21ECD61F0092E173 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B6B21ECD61E0092E173 /* DetailViewController.swift */; };
 		5CCE1B7121ECD8490092E173 /* Project38.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B6F21ECD8490092E173 /* Project38.xcdatamodeld */; };
+		5CCE1B7421ECE39E0092E173 /* Commit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B7221ECE39E0092E173 /* Commit+CoreDataClass.swift */; };
+		5CCE1B7521ECE39E0092E173 /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B7321ECE39E0092E173 /* Commit+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		5CCE1B6B21ECD61E0092E173 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5CCE1B6E21ECD6CC0092E173 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5CCE1B7021ECD8490092E173 /* Project38.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project38.xcdatamodel; sourceTree = "<group>"; };
+		5CCE1B7221ECE39E0092E173 /* Commit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5CCE1B7321ECE39E0092E173 /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 		5CCE1B6921ECD4780092E173 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5CCE1B7221ECE39E0092E173 /* Commit+CoreDataClass.swift */,
+				5CCE1B7321ECE39E0092E173 /* Commit+CoreDataProperties.swift */,
 				5CCE1B6F21ECD8490092E173 /* Project38.xcdatamodeld */,
 			);
 			path = Model;
@@ -186,7 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCE1B7421ECE39E0092E173 /* Commit+CoreDataClass.swift in Sources */,
 				5CCE1B6621ECD4460092E173 /* SwiftyJSON.swift in Sources */,
+				5CCE1B7521ECE39E0092E173 /* Commit+CoreDataProperties.swift in Sources */,
 				5CCE1B7121ECD8490092E173 /* Project38.xcdatamodeld in Sources */,
 				5CCE1B5621ECD3D10092E173 /* ViewController.swift in Sources */,
 				5CCE1B5421ECD3D10092E173 /* AppDelegate.swift in Sources */,

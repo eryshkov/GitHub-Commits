@@ -19,6 +19,7 @@
 ## Main functionality
 * An App to fetch and store GitHub commits for Swift
 * uses `CoreData`
+* uses `NSPersistentContainer` and it's `viewContext` property
 
 
 ## License

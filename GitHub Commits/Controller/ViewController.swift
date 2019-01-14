@@ -39,6 +39,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         coreDataSetup()
+        
     }
 
 
