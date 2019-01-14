@@ -7,13 +7,38 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UITableViewController {
+    //MARK: -
+    var container: NSPersistentContainer!
+    
+    //MARK: -
+    func coreDataSetup() {
+        container = NSPersistentContainer(name: "Project38")
+        
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error {
+                print("Unresolved error \(error)")
+            }
+        }
+    }
+    
+    func saveContext() {
+        if container.viewContext.hasChanges {
+            do{
+                try container.viewContext.save()
+            }catch{
+                print("An error occured while saving: \(error.localizedDescription)")
+            }
+        }
+    }
     
     //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        coreDataSetup()
     }
 
 
