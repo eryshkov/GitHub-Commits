@@ -14,6 +14,7 @@
 		5CCE1B5E21ECD3D30092E173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CCE1B5C21ECD3D30092E173 /* LaunchScreen.storyboard */; };
 		5CCE1B6621ECD4460092E173 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B6521ECD4460092E173 /* SwiftyJSON.swift */; };
 		5CCE1B6C21ECD61F0092E173 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B6B21ECD61E0092E173 /* DetailViewController.swift */; };
+		5CCE1B7121ECD8490092E173 /* Project38.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1B6F21ECD8490092E173 /* Project38.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		5CCE1B6521ECD4460092E173 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5CCE1B6B21ECD61E0092E173 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5CCE1B6E21ECD6CC0092E173 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5CCE1B7021ECD8490092E173 /* Project38.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project38.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		5CCE1B6921ECD4780092E173 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5CCE1B6F21ECD8490092E173 /* Project38.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CCE1B6621ECD4460092E173 /* SwiftyJSON.swift in Sources */,
+				5CCE1B7121ECD8490092E173 /* Project38.xcdatamodeld in Sources */,
 				5CCE1B5621ECD3D10092E173 /* ViewController.swift in Sources */,
 				5CCE1B5421ECD3D10092E173 /* AppDelegate.swift in Sources */,
 				5CCE1B6C21ECD61F0092E173 /* DetailViewController.swift in Sources */,
@@ -388,6 +392,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5CCE1B6F21ECD8490092E173 /* Project38.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5CCE1B7021ECD8490092E173 /* Project38.xcdatamodel */,
+			);
+			currentVersion = 5CCE1B7021ECD8490092E173 /* Project38.xcdatamodel */;
+			path = Project38.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5CCE1B4821ECD3D10092E173 /* Project object */;
 }
