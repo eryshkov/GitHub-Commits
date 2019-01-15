@@ -84,10 +84,27 @@ class ViewController: UITableViewController {
     @objc func changeFilter() {
         let ac = UIAlertController(title: "Filter commits...", message: nil, preferredStyle: .actionSheet)
         ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        //1
-        //2
-        //3
-        //4
+        
+        ac.addAction(UIAlertAction(title: "Show only fixes", style: .default, handler: {[unowned self] (_) in
+            self.commitPredicate = NSPredicate(format: "message CONTAINS[c] 'fix'")
+            self.loadSavedData()
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Ignore Pull Requests", style: .default, handler: {[unowned self] (_) in
+            self.commitPredicate = NSPredicate(format: "NOT message BEGINSWITH 'Merge pull request'")
+            self.loadSavedData()
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Show only recent", style: .default, handler: {[unowned self] (_) in
+            let twelveHoursAgo = Date().addingTimeInterval(-43200)
+            self.commitPredicate = NSPredicate(format: "date > %@", twelveHoursAgo as NSDate)
+            self.loadSavedData()
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Show all commits", style: .default, handler: {[unowned self] (_) in
+            self.commitPredicate = nil
+            self.loadSavedData()
+        }))
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(ac, animated: true)
