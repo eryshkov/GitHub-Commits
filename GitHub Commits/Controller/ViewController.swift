@@ -126,6 +126,11 @@ class ViewController: UITableViewController {
             self.loadSavedData()
         }))
         
+        ac.addAction(UIAlertAction(title: "Show only Durian commits", style: .default, handler: {[unowned self] (_) in
+            self.commitPredicate = NSPredicate(format: "author.name == 'Joe Groff'")
+            self.loadSavedData()
+        }))
+        
         ac.addAction(UIAlertAction(title: "Show all commits", style: .default, handler: {[unowned self] (_) in
             self.commitPredicate = nil
             self.loadSavedData()
@@ -165,6 +170,13 @@ class ViewController: UITableViewController {
         cell.detailTextLabel?.text = "By \(commit.author.name) on \(commit.date.description)"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.detailItem = commits[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
 }
