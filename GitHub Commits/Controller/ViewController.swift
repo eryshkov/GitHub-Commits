@@ -119,7 +119,7 @@ class ViewController: UITableViewController {
             request.sortDescriptors = [sort]
             request.fetchBatchSize = 20
             
-            fetchResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container.viewContext, sectionNameKeyPath: "author.name", cacheName: nil)
             fetchResultsController.delegate = self
         }
         
@@ -215,6 +215,10 @@ class ViewController: UITableViewController {
         }
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return fetchResultsController.sections![section].name
+    }
+    
 }
 //MARK: -
 extension ViewController: NSFetchedResultsControllerDelegate {
