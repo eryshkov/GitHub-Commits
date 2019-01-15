@@ -22,7 +22,9 @@
 * uses `NSPersistentContainer` and it's `viewContext` property
 * uses `SwiftyJSON` for parsing JSON
 * uses `ISO8601DateFormatter`
-* 
+* uses `NSFetchedResultsController` & `NSFetchedResultsControllerDelegate`
+* uses `NSPredicate` to filter data while fetching request
+* uses `mergePolicy` & `unique constraints` technology
 
 
 ## License

@@ -114,7 +114,7 @@ class ViewController: UITableViewController {
     func loadSavedData() {
         if fetchResultsController == nil {
             let request = Commit.createFetchRequest()
-            let sort = NSSortDescriptor(key: "date", ascending: false)
+            let sort = NSSortDescriptor(key: "author.name", ascending: true)
             
             request.sortDescriptors = [sort]
             request.fetchBatchSize = 20
