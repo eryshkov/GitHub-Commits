@@ -13,6 +13,7 @@ class ViewController: UITableViewController {
     //MARK: -
     var container: NSPersistentContainer!
     var commits = [Commit]()
+    var commitPredicate: NSPredicate?
     
     //MARK: -
     func coreDataSetup() {
@@ -69,6 +70,7 @@ class ViewController: UITableViewController {
         let request = Commit.createFetchRequest()
         let sort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sort]
+        request.predicate = commitPredicate
         
         do{
             commits = try container.viewContext.fetch(request)
@@ -79,9 +81,23 @@ class ViewController: UITableViewController {
         }
     }
     
+    @objc func changeFilter() {
+        let ac = UIAlertController(title: "Filter commits...", message: nil, preferredStyle: .actionSheet)
+        ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        //1
+        //2
+        //3
+        //4
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(ac, animated: true)
+    }
+    
     //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(changeFilter))
         
         coreDataSetup()
         
