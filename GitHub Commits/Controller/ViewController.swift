@@ -19,6 +19,7 @@ class ViewController: UITableViewController {
         container = NSPersistentContainer(name: "Project38")
         
         container.loadPersistentStores { (storeDescription, error) in
+            self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             if let error = error {
                 print("Unresolved error \(error)")
             }
@@ -71,7 +72,7 @@ class ViewController: UITableViewController {
         
         do{
             commits = try container.viewContext.fetch(request)
-            print("Got \(commits.count) commits")
+            print("Got \(commits.count) commits into tableView")
             tableView.reloadData()
         }catch{
             print("Fetch failed with: \(error.localizedDescription)")
