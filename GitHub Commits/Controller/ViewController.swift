@@ -12,7 +12,7 @@ import CoreData
 class ViewController: UITableViewController {
     //MARK: -
     var container: NSPersistentContainer!
-    var commits = [Commit]()
+//    var commits = [Commit]()
     var commitPredicate: NSPredicate?
     var fetchResultsController: NSFetchedResultsController<Commit>!
     
@@ -112,17 +112,24 @@ class ViewController: UITableViewController {
     }
     
     func loadSavedData() {
-        let request = Commit.createFetchRequest()
-        let sort = NSSortDescriptor(key: "date", ascending: false)
-        request.sortDescriptors = [sort]
-        request.predicate = commitPredicate
+        if fetchResultsController == nil {
+            let request = Commit.createFetchRequest()
+            let sort = NSSortDescriptor(key: "date", ascending: false)
+            
+            request.sortDescriptors = [sort]
+            request.fetchBatchSize = 20
+            
+            fetchResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultsController.delegate = self
+        }
         
-        do{
-            commits = try container.viewContext.fetch(request)
-            print("Got \(commits.count) commits into tableView")
+        fetchResultsController.fetchRequest.predicate = commitPredicate
+        
+        do {
+            try fetchResultsController.performFetch()
             tableView.reloadData()
-        }catch{
-            print("Fetch failed with: \(error.localizedDescription)")
+        } catch {
+            print("Fetch failed")
         }
     }
     
@@ -175,17 +182,18 @@ class ViewController: UITableViewController {
 
     //MARK: -
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchResultsController.sections?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commits.count
+        let sectionInfo = fetchResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Commit", for: indexPath)
         
-        let commit = commits[indexPath.row]
+        let commit = fetchResultsController.object(at: indexPath)
         cell.textLabel?.text = commit.message
         cell.detailTextLabel?.text = "By \(commit.author.name) on \(commit.date.description)"
         
@@ -194,21 +202,28 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            vc.detailItem = commits[indexPath.row]
+            vc.detailItem = fetchResultsController.object(at: indexPath)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let commit = commits[indexPath.row]
+            let commit = fetchResultsController.object(at: indexPath)
             container.viewContext.delete(commit)
-            commits.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
             saveContext()
         }
     }
 
 }
-
+//MARK: -
+extension ViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        default:
+            break
+        }
+    }
+}
