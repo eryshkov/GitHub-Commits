@@ -14,6 +14,7 @@ class ViewController: UITableViewController {
     var container: NSPersistentContainer!
     var commits = [Commit]()
     var commitPredicate: NSPredicate?
+    var fetchResultsController: NSFetchedResultsController<Commit>!
     
     //MARK: -
     func coreDataSetup() {
