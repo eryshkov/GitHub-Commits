@@ -225,7 +225,11 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            if indexPath!.row < 2 {
+                tableView.deleteSections(IndexSet(integer: indexPath!.section), with: .automatic)
+            }else{
+                tableView.deleteRows(at: [indexPath!], with: .automatic)
+            }
         default:
             break
         }
